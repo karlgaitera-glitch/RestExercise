@@ -1,6 +1,6 @@
 package com.example.spring.spring_rest.controller;
 
-import com.example.spring.spring_rest.dto.Student;
+import com.example.spring.spring_rest.entity.StudentOld;
 import com.example.spring.spring_rest.exception.StudentNotFoundException;
 
 import jakarta.annotation.PostConstruct;
@@ -17,24 +17,24 @@ import java.util.ArrayList;
 @RequestMapping("/api")
 public class StudentRestController {
 
-    private List<Student> theStudents;
+    private List<StudentOld> theStudents;
 
     @PostConstruct
     public void initialize() {
         theStudents = new ArrayList<>();
 
-        theStudents.add(new Student("First", "Student1"));
-        theStudents.add(new Student("Second", "Student2"));
-        theStudents.add(new Student("Third", "Student3"));
+        theStudents.add(new StudentOld("First", "Student1"));
+        theStudents.add(new StudentOld("Second", "Student2"));
+        theStudents.add(new StudentOld("Third", "Student3"));
     }
 
     @GetMapping("/students")
-    public List<Student> getStudents() {
+    public List<StudentOld> getStudents() {
         return theStudents;
     }
 
     @GetMapping("/students/{studentId}")
-    public Student getStudent(@PathVariable int studentId) {
+    public StudentOld getStudent(@PathVariable int studentId) {
 
         if (studentId >= theStudents.size() || (studentId < 0)) {
             throw new StudentNotFoundException(

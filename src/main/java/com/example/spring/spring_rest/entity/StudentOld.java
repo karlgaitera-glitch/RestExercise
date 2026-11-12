@@ -1,13 +1,13 @@
-package com.example.spring.spring_rest.dto;
+package com.example.spring.spring_rest.entity;
 
-public class Student {
+public class StudentOld {
     private String firstname;
     private String lastName;
 
-    public Student() {
+    public StudentOld() {
     }
 
-    public Student(String firstname, String lastName) {
+    public StudentOld(String firstname, String lastName) {
         this.firstname = firstname;
         this.lastName = lastName;
     }
