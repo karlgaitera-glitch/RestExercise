@@ -1,0 +1,21 @@
+package com.example.spring.spring_rest.mapper;
+
+import com.example.spring.spring_rest.entity.Student;
+import com.example.spring.spring_rest.dto.StudentDto;
+
+public class StudentMapper {
+
+    public static StudentDto mapToStudentDto(Student theStudent) {
+        return new StudentDto(theStudent.getId(),
+                theStudent.getFirstName(),
+                theStudent.getLastName(),
+                theStudent.getEmail());
+    }
+
+    public static Student mapToStudent(StudentDto theStudentDto) {
+        return new Student(theStudentDto.getId(),
+                theStudentDto.getFirstName(),
+                theStudentDto.getLastName(),
+                theStudentDto.getEmail());
+    }
+}

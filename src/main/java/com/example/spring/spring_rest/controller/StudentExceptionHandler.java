@@ -12,7 +12,7 @@ import com.example.spring.spring_rest.exception.StudentNotFoundException;
 @ControllerAdvice
 public class StudentExceptionHandler {
 
-    @ExceptionHandler 
+    @ExceptionHandler
     public ResponseEntity<StudentErrorResponse> handleException(
             StudentNotFoundException ex) {
         StudentErrorResponse err = new StudentErrorResponse();
@@ -24,8 +24,7 @@ public class StudentExceptionHandler {
         return new ResponseEntity<>(err, HttpStatus.NOT_FOUND);
     }
 
-    
-    @ExceptionHandler 
+    @ExceptionHandler
     public ResponseEntity<StudentErrorResponse> handleException(
             Exception ex) {
         StudentErrorResponse err = new StudentErrorResponse();

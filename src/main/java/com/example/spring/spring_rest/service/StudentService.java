@@ -1,0 +1,7 @@
+package com.example.spring.spring_rest.service;
+
+import com.example.spring.spring_rest.dto.StudentDto;
+
+public interface StudentService {
+    StudentDto createStudent(StudentDto thStudentDto);
+}
