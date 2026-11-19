@@ -1,5 +1,6 @@
 package com.example.spring.spring_rest.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,14 +14,20 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="first_name", nullable = false)
     private String firstName;
+
+    @Column(name="last_name", nullable = false)
     private String lastName;
+
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
     public Student() {
     }
 
-    public Student(long id, String firstName, String lastName, String email) {
+    public Student(Long id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
