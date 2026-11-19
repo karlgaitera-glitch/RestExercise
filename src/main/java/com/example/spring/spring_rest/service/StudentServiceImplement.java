@@ -49,7 +49,7 @@ public class StudentServiceImplement implements StudentService {
     public StudentDto getStudentById(Long theId) {
         Student student = studentRepository.findById(theId)
                 .orElseThrow(() -> new StudentNotFoundException(
-                        "Student id" + theId + " not found!"));
+                        "Student id " + theId + " not found!"));
         return StudentMapper.mapToStudentDto(student);
     }
 
@@ -73,7 +73,7 @@ public class StudentServiceImplement implements StudentService {
     public StudentDto updateStudent(Long theId, StudentDto theStudentDto){
         Student student = studentRepository.findById(theId)
             .orElseThrow(()-> new StudentNotFoundException(
-                "Student id" + theId + " not found!"
+                "Student id " + theId + " not found!"
             ));
 
             student.setFirstName(theStudentDto.getFirstName());
@@ -93,7 +93,7 @@ public class StudentServiceImplement implements StudentService {
     public StudentDto patchStudent(Long theId, StudentDto theStudentDto){
         Student student = studentRepository.findById(theId)
             .orElseThrow(()->new StudentNotFoundException(
-                "Student id" + theId + " not found!"));
+                "Student id " + theId + " not found!"));
         
         if(theStudentDto.getFirstName()!=null){
             student.setFirstName(theStudentDto.getFirstName());
@@ -118,7 +118,7 @@ public class StudentServiceImplement implements StudentService {
     public void deleteStudentById(Long theId){
         studentRepository.findById(theId)
         .orElseThrow(()->new StudentNotFoundException(
-            "Student id " + theId + "not found!"
+            "Student id " + theId + " not found!"
         ));
         studentRepository.deleteById(theId);
     }
